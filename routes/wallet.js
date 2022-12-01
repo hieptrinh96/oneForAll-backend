@@ -4,4 +4,10 @@ import { decodeUserFromToken, checkAuth } from "../middleware/auth";
 
 const router = Router()
 
+router.use(decodeUserFromToken)
+
+router.get("/". checkAuth, walletCtrl.index)
+
+
+
 export {router}
