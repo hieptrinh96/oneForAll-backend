@@ -4,4 +4,7 @@ import { decodeUserFromToken, checkAuth } from "../middleware/auth";
 
 const router = Router()
 
+router.post('/', checkAuth, coinCtrl.createCoin)
+
+
 export { router }
