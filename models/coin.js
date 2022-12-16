@@ -11,3 +11,7 @@ const coinSchema = new Schema({
   supply: {type: String},
   maxSupply: {type: String},
 })
+
+const Coin = mongoose.model('Coin', coinSchema)
+
+export { Coin }

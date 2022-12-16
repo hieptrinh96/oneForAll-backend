@@ -1,5 +1,5 @@
-import { Wallet } from "../models/wallet";
-import { Profile } from "../models/profile";
+import { Wallet } from "../models/wallet.js";
+import { Profile } from "../models/profile.js";
 
 const index = async (req, res) => {
   try {
