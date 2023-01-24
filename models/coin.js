@@ -10,7 +10,9 @@ const coinSchema = new Schema({
   priceUsd: {type: String},
   supply: {type: String},
   maxSupply: {type: String},
-})
+  owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
+}, 
+{timestamps: true})
 
 const Coin = mongoose.model('Coin', coinSchema)
 

@@ -1,5 +1,6 @@
 import { Profile } from '../models/profile.js'
 import { v2 as cloudinary } from 'cloudinary'
+import { Coin } from '../models/coin.js'
 
 function index(req, res) {
   Profile.find({})
@@ -29,4 +30,26 @@ function addPhoto(req, res) {
   })
 }
 
-export { index, addPhoto }
+function showMyCoins(req, res) {
+  Profile.find({}).then((profiles) => {
+    Profile.findById(req.params.id).then((profile) => {
+      Coin.find({ owner: profile._id}).then((coin) => {
+        res.status(200).json(coin)
+      })
+      .catch((error) => {
+        console.log(error)
+        res.status(500).json(error)
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+      res.status(500).json(error)
+    })
+  })
+}
+
+export { 
+  index, 
+  addPhoto,
+  showMyCoins 
+}
