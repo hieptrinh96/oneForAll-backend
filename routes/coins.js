@@ -1,8 +1,10 @@
 import { Router } from "express";
-import * as coinCtrl from '../controllers/coin.js'
+import * as coinCtrl from '../controllers/coins.js'
 import { decodeUserFromToken, checkAuth } from "../middleware/auth.js";
 
 const router = Router()
+
+router.use(decodeUserFromToken)
 
 router.post('/', coinCtrl.createCoin)
 
