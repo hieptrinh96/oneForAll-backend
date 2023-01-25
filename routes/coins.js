@@ -6,7 +6,7 @@ const router = Router()
 
 router.use(decodeUserFromToken)
 
-router.post('/', coinCtrl.createCoin)
+router.post('/', checkAuth, coinCtrl.createCoin)
 
 
 export { router } 
