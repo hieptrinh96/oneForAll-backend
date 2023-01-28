@@ -31,8 +31,8 @@ function addPhoto(req, res) {
 }
 
 function showMyCoins(req, res) {
-  Profile.find({}).populate('owner').then((profiles) => {
-    Profile.findById(req.params.id).then((profile) => {
+  Profile.find({}).then((profiles) => {
+    Profile.findById(req.params.id).populate('coins').then((profile) => {
       Coin.find({ owner: profile._id}).then((coin) => {
         res.status(200).json(coin)
       })
