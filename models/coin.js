@@ -7,9 +7,9 @@ const coinSchema = new Schema({
   rank: {type: String},
   symbol: {type: String},
   name: {type: String},
-  priceUsd: {type: String},
-  supply: {type: String},
-  maxSupply: {type: String},
+  priceUsd: {type: Number},
+  supply: {type: Number},
+  maxSupply: {type: Number},
   owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
 }, 
 {timestamps: true})
