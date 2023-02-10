@@ -12,5 +12,6 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, profilesCtrl.index)
 router.get('/:id/coins', checkAuth, profilesCtrl.showMyCoins)
 router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
-router.delete('/:id', checkAuth, profilesCtrl.deleteCoin)
+router.delete('/:id/coins/:id', checkAuth, profilesCtrl.delete)
+
 export { router }
