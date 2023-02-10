@@ -48,8 +48,26 @@ function showMyCoins(req, res) {
   })
 }
 
+function deleteCoin(req, res) {
+  Profile.findById(req.params.id).then(profile => {
+    Coin.findByIdAndDelete(req.params.id).then(coin => {
+      profile.coins.remove({ _id: req.params.id })
+      profile.save()
+      res.status(200).json(coin)
+    }).catch((error) => {
+      console.log(error)
+      res.status(500).json(error)
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+    res.status(500).json(error)
+  })
+}
+
 export { 
   index, 
   addPhoto,
-  showMyCoins 
+  showMyCoins,
+  deleteCoin as delete 
 }
