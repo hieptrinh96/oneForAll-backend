@@ -48,7 +48,6 @@ function deleteCoin(req, res) {
 
 export { 
   index, 
-  addPhoto,
   showMyCoins,
   deleteCoin as delete 
 }
